@@ -1,5 +1,6 @@
 package net.caseydunham.pirate.stripes.action;
 
+import net.caseydunham.pirate.model.Paste;
 import net.sourceforge.stripes.action.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,12 @@ public class HomeActionBean implements ActionBean {
 
 	@HandlesEvent("submit")
 	public Resolution submit() {
-		LOG.info("Creating new Paste [Title: " + getTitle() + "]");
+		Paste p = new Paste();
+		p.setTitle(getTitle());
+		p.setUsername(getUsername());
+		p.setContent(getContent());
+
+		LOG.info("Creating new Paste " + p);
 		return new RedirectResolution(HOME_ACTION);
 	}
 
