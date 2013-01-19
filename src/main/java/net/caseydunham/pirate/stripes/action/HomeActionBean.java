@@ -1,6 +1,8 @@
 package net.caseydunham.pirate.stripes.action;
 
 import net.caseydunham.pirate.model.Paste;
+import net.caseydunham.pirate.services.PasteService;
+import net.caseydunham.pirate.services.impl.PasteServiceImpl;
 import net.sourceforge.stripes.action.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +37,8 @@ public class HomeActionBean implements ActionBean {
 		p.setUsername(getUsername());
 		p.setContent(getContent());
 
-		LOG.info("Creating new Paste " + p);
+		PasteService pasteService = new PasteServiceImpl();
+		pasteService.create(p);
 		return new RedirectResolution(HOME_ACTION);
 	}
 
