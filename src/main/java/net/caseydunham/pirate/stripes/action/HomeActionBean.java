@@ -16,6 +16,10 @@ public class HomeActionBean implements ActionBean {
 
 	private ActionBeanContext context;
 
+	private String title;
+	private String username;
+	private String content;
+
 	@DontValidate
 	@DefaultHandler
 	public Resolution view() {
@@ -23,7 +27,22 @@ public class HomeActionBean implements ActionBean {
 		return new ForwardResolution(HOME_PAGE);
 	}
 
+	@HandlesEvent("submit")
+	public Resolution submit() {
+		LOG.info("Creating new Paste [Title: " + getTitle() + "]");
+		return new RedirectResolution(HOME_ACTION);
+	}
+
 	public void setContext(ActionBeanContext context) { this.context = context;	}
 	public ActionBeanContext getContext() { return context; }
+
+	public String getTitle() { return title; }
+	public void setTitle(String title) { this.title = title; }
+
+	public String getUsername() { return username; }
+	public void setUsername(String username) { this.username = username; }
+
+	public String getContent() { return content; }
+	public void setContent(String content) { this.content = content; }
 
 }
