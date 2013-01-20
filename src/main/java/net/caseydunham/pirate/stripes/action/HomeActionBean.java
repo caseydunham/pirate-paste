@@ -1,8 +1,8 @@
 package net.caseydunham.pirate.stripes.action;
 
+import com.google.inject.Inject;
 import net.caseydunham.pirate.model.Paste;
 import net.caseydunham.pirate.services.PasteService;
-import net.caseydunham.pirate.services.impl.PasteServiceImpl;
 import net.sourceforge.stripes.action.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,8 @@ public class HomeActionBean implements ActionBean {
 
 	private ActionBeanContext context;
 
-	private PasteService pasteService = new PasteServiceImpl();
+	@Inject
+	private PasteService pasteService;
 
 	private String title;
 	private String username;

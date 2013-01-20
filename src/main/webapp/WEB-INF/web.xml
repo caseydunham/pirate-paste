@@ -25,6 +25,10 @@
       <param-value>net.caseydunham.pirate.stripes.action</param-value>
     </init-param>
     <init-param>
+      <param-name>Extension.Packages</param-name>
+      <param-value>net.caseydunham.pirate.stripes.ext</param-value>
+    </init-param>
+    <init-param>
       <param-name>LocalePicker.Locales</param-name>
       <param-value>en_US:UTF-8</param-value>
     </init-param>
