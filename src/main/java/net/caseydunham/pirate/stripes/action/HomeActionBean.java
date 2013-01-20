@@ -7,6 +7,8 @@ import net.sourceforge.stripes.action.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 @UrlBinding(HomeActionBean.HOME_ACTION)
 public class HomeActionBean implements ActionBean {
 
@@ -18,6 +20,8 @@ public class HomeActionBean implements ActionBean {
 	public static final String HOME_PAGE = PAGE_LOCATION + "/Home.jsp";
 
 	private ActionBeanContext context;
+
+	private PasteService pasteService = new PasteServiceImpl();
 
 	private String title;
 	private String username;
@@ -37,13 +41,14 @@ public class HomeActionBean implements ActionBean {
 		p.setUsername(getUsername());
 		p.setContent(getContent());
 
-		PasteService pasteService = new PasteServiceImpl();
 		pasteService.create(p);
 		return new RedirectResolution(HOME_ACTION);
 	}
 
 	public void setContext(ActionBeanContext context) { this.context = context;	}
 	public ActionBeanContext getContext() { return context; }
+
+	public List<Paste> getRecentPastes() { return pasteService.getRecentPastes(); }
 
 	public String getTitle() { return title; }
 	public void setTitle(String title) { this.title = title; }

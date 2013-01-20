@@ -1,11 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://stripes.sourceforge.net/stripes.tld" prefix="s" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
 
 	<body>
 		<h1>Pirate Paste</h1>
+
+		<h3>Recent Pastes</h3>
+		<ul>
+			<c:forEach var="paste" items="${actionBean.recentPastes}">
+	    	<li>${paste.title} - ${paste.username}</li>
+			</c:forEach>
+		</ul>
 
 		<s:form action="/paste" beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean" id="sharePasteForm">
 			<table>
