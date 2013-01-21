@@ -10,11 +10,10 @@
 				<h3>Paste not found!</h3>
 			</c:when>
 			<c:otherwise>
-				<ul>
-					<li>${actionBean.paste.title}</li>
-					<li>${actionBean.paste.username}</li>
-					<li>${actionBean.paste.content}</li>
-				</ul>
+				Posted by ${actionBean.paste.username} on
+				<s:format value="${actionBean.paste.created}" formatPattern="EEE, dd MMM HH:mm"/><br/>
+				${actionBean.paste.title}<br/>
+				${actionBean.paste.content}
 			</c:otherwise>
 		</c:choose>
 	</s:layout-component>

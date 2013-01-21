@@ -2,6 +2,7 @@ package net.caseydunham.pirate.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "pastes")
@@ -11,6 +12,7 @@ public class Paste  implements IValueObject, Serializable {
 	private String title;
 	private String username;
 	private String content;
+	private Date created;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +30,10 @@ public class Paste  implements IValueObject, Serializable {
 	@Column(name = "content")
 	public String getContent() { return content; }
 	public void setContent(String content) { this.content = content; }
+
+	@Column(name = "created")
+	public Date getCreated() { return created; }
+	public void setCreated(Date created) { this.created = created; }
 
 	@Override
 	public String toString() {

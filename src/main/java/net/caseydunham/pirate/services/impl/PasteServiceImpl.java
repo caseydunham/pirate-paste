@@ -7,6 +7,7 @@ import net.caseydunham.pirate.services.PasteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
 import java.util.List;
 
 public class PasteServiceImpl implements PasteService {
@@ -27,6 +28,7 @@ public class PasteServiceImpl implements PasteService {
 	@Override
 	public void create(Paste p) {
 		LOG.info("Creating new Paste " + p);
+		p.setCreated(new Date());
 		getPasteDao().saveOrUpdate(p);
 	}
 

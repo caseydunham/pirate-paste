@@ -21,7 +21,8 @@
 		<ul>
 			<c:forEach var="paste" items="${actionBean.recentPastes}">
 				<li>
-					<a href="/pastes/${paste.id}">${paste.title}</a> - ${paste.username}</li>
+					<a href="/pastes/${paste.id}">${paste.title}</a> - ${paste.username}
+				</li>
 			</c:forEach>
 		</ul>
 		<s:layout-component name="pageBody"/>
