@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import net.caseydunham.pirate.model.Paste;
 import net.caseydunham.pirate.services.PasteService;
 import net.sourceforge.stripes.action.*;
+import net.sourceforge.stripes.controller.LifecycleStage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +24,14 @@ public class ViewPasteActionBean implements ActionBean {
 	private PasteService pasteService;
 
 	private Long id;
+	private Paste paste;
+
+	@After(stages = {LifecycleStage.BindingAndValidation})
+	public void bind() {
+		if (getId() != null) {
+			setPaste(pasteService.getById(getId()));
+		}
+	}
 
 	@DontValidate
 	@DefaultHandler
@@ -34,9 +43,8 @@ public class ViewPasteActionBean implements ActionBean {
 	public Long getId() { return id; }
 	public void setId(Long id) { this.id = id; }
 
-	public Paste getPaste() {
-		return pasteService.getById(getId());
-	}
+	public Paste getPaste() { return paste; }
+	public void setPaste(Paste paste) { this.paste = paste; }
 
 	@Override
 	public void setContext(ActionBeanContext context) { this.context = context; }
