@@ -1,28 +1,16 @@
 package net.caseydunham.pirate.stripes.action;
 
-import com.google.inject.Inject;
 import net.caseydunham.pirate.model.Paste;
-import net.caseydunham.pirate.services.PasteService;
 import net.sourceforge.stripes.action.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-@UrlBinding(HomeActionBean.HOME_ACTION)
-public class HomeActionBean implements ActionBean {
+@UrlBinding(BaseActionBean.HOME_ACTION)
+public class HomeActionBean extends BaseActionBean {
 
 	private static final Logger LOG = LoggerFactory.getLogger(HomeActionBean.class);
-
-	public static final String PAGE_LOCATION = "/WEB-INF/jsps";
-
-	public static final String HOME_ACTION = "/home";
-	public static final String HOME_PAGE = PAGE_LOCATION + "/Home.jsp";
-
-	private ActionBeanContext context;
-
-	@Inject
-	private PasteService pasteService;
 
 	private String title;
 	private String username;
@@ -42,14 +30,13 @@ public class HomeActionBean implements ActionBean {
 		p.setUsername(getUsername());
 		p.setContent(getContent());
 
-		pasteService.create(p);
+		getPasteService().create(p);
 		return new RedirectResolution(HOME_ACTION);
 	}
 
-	public void setContext(ActionBeanContext context) { this.context = context;	}
-	public ActionBeanContext getContext() { return context; }
-
-	public List<Paste> getRecentPastes() { return pasteService.getRecentPastes(); }
+	public List<Paste> getRecentPastes() {
+		return getPasteService().getRecentPastes();
+	}
 
 	public String getTitle() { return title; }
 	public void setTitle(String title) { this.title = title; }
