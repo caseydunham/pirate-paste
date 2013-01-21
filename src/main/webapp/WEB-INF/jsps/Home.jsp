@@ -11,7 +11,8 @@
 		<h3>Recent Pastes</h3>
 		<ul>
 			<c:forEach var="paste" items="${actionBean.recentPastes}">
-	    	<li>${paste.title} - ${paste.username}</li>
+	    	<li>
+					<a href="/pastes/${paste.id}">${paste.title}</a> - ${paste.username}</li>
 			</c:forEach>
 		</ul>
 

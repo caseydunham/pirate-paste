@@ -15,8 +15,20 @@ public class PasteServiceImpl implements PasteService {
 	private static List<Paste> pastes = new ArrayList<Paste>();
 
 	@Override
+	public Paste getById(Long id) {
+		for (Paste p : pastes) {
+			if (p.getId().equals(id)) {
+				return p;
+			}
+		}
+		return null;
+	}
+
+	@Override
 	public void create(Paste p) {
 		LOG.info("Creating new Paste " + p);
+		long id = pastes.size() + 1;
+		p.setId(id);
 		pastes.add(p);
 	}
 
