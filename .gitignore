@@ -2,3 +2,4 @@
 .idea
 /pirate-paste.iml
 target
+/pirate.db
