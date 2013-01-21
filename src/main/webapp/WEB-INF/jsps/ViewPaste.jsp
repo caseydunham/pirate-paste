@@ -15,5 +15,7 @@
 				<c:out value="${actionBean.paste.content}"/>
 			</c:otherwise>
 		</c:choose>
+		<br/><br/>
+		<s:link beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean">new paste</s:link>
 	</s:layout-component>
 </s:layout-render>
