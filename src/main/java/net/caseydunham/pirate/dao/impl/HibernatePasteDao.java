@@ -11,7 +11,7 @@ public class HibernatePasteDao extends HibernateBaseDao<Paste> implements PasteD
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Paste> getRecentPastes() {
-		return (List<Paste>) getSession().createQuery("select p from Paste p").list();
+		return (List<Paste>) getSession().createQuery("select p from Paste p order by p.created desc").list();
 	}
 
 }
