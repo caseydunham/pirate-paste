@@ -1,9 +1,12 @@
 package net.caseydunham.pirate.stripes.action;
 
 import com.google.inject.Inject;
+import net.caseydunham.pirate.model.Paste;
 import net.caseydunham.pirate.services.PasteService;
 import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ActionBeanContext;
+
+import java.util.List;
 
 public class BaseActionBean implements ActionBean {
 
@@ -21,6 +24,10 @@ public class BaseActionBean implements ActionBean {
 
 	public PasteService getPasteService() { return pasteService; }
 	public void setPasteService(PasteService pasteService) { this.pasteService = pasteService; }
+
+	public List<Paste> getRecentPastes() {
+		return getPasteService().getRecentPastes();
+	}
 
 	public void setContext(ActionBeanContext context) { this.context = context;	}
 	public ActionBeanContext getContext() { return context; }

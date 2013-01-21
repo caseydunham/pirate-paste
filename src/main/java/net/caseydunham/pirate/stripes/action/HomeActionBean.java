@@ -2,11 +2,8 @@ package net.caseydunham.pirate.stripes.action;
 
 import net.caseydunham.pirate.model.Paste;
 import net.sourceforge.stripes.action.*;
-import net.sourceforge.stripes.controller.LifecycleStage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 @UrlBinding(BaseActionBean.HOME_ACTION)
 public class HomeActionBean extends BaseActionBean {
@@ -16,13 +13,6 @@ public class HomeActionBean extends BaseActionBean {
 	private String title;
 	private String username;
 	private String content;
-
-	private List<Paste> recentPastes;
-
-	@After(stages = {LifecycleStage.BindingAndValidation})
-	public void bind() {
-		setRecentPastes(getPasteService().getRecentPastes());
-	}
 
 	@DontValidate
 	@DefaultHandler
@@ -41,9 +31,6 @@ public class HomeActionBean extends BaseActionBean {
 		getPasteService().create(p);
 		return new RedirectResolution(HOME_ACTION);
 	}
-
-	public List<Paste> getRecentPastes() { return recentPastes; }
-	public void setRecentPastes(List<Paste> recentPastes) { this.recentPastes = recentPastes; }
 
 	public String getTitle() { return title; }
 	public void setTitle(String title) { this.title = title; }

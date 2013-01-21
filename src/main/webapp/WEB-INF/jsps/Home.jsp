@@ -4,14 +4,6 @@
 
 <s:layout-render name="Layout.jsp" pageTitle="home">
 	<s:layout-component name="pageBody">
-		<h3>Recent Pastes</h3>
-		<ul>
-			<c:forEach var="paste" items="${actionBean.recentPastes}">
-				<li>
-					<a href="/pastes/${paste.id}">${paste.title}</a> - ${paste.username}</li>
-			</c:forEach>
-		</ul>
-
 		<s:form action="/paste" beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean" id="sharePasteForm">
 			<table>
 				<tr>
