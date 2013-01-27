@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class TestPastesService extends BaseTest {
+public class TestPasteService extends BaseTest {
 
 	private PasteService pasteService;
 
