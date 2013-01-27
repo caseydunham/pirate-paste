@@ -5,6 +5,8 @@ import net.caseydunham.pirate.stripes.action.HomeActionBean;
 import net.sourceforge.stripes.mock.MockRoundtrip;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -32,6 +34,15 @@ public class TestHomeActionBean extends BaseTest {
 		assertNotNull(p);
 		assertNotNull(p.getId());
 		assertEquals("/pirate/home", trip.getRedirectUrl());
+	}
+
+	@Test
+	public void testRecentPastes() throws Exception {
+		MockRoundtrip trip = new MockRoundtrip(mockServletContext, HomeActionBean.class, mockHttpSession);
+		trip.execute();
+		HomeActionBean bean = trip.getActionBean(HomeActionBean.class);
+		List<Paste> recent = bean.getRecentPastes();
+		assertNotNull(recent);
 	}
 
 }
