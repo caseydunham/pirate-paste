@@ -28,8 +28,41 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 
+	public static void setSessionFactory(SessionFactory sessionFactory) {
+		HibernateUtil.sessionFactory = sessionFactory;
+	}
+
+	public static void beginTransaction() {
+		getCurrentSession().beginTransaction();
+	}
+
+	public static void commit() {
+		Session session = getCurrentSession();
+		if (session.isOpen() && !session.getTransaction().wasRolledBack()) {
+			session.getTransaction().commit();
+		}
+	}
+
 	public static Session getCurrentSession() {
 		return getSessionFactory().getCurrentSession();
+	}
+
+	public static void rollback() {
+		Session session = getCurrentSession();
+		try {
+			if (session.isOpen()) {
+				if (session.isDirty()) {
+					LOG.warn("rolling back transaction after exception");
+					session.getTransaction().rollback();
+				} else {
+					LOG.warn("closing open transaction after exception");
+					session.close();
+				}
+			}
+		} catch (Throwable t) {
+			LOG.error("failed to roll back transaction after exception, attempting to close", t);
+			session.close();
+		}
 	}
 
 }

@@ -14,6 +14,8 @@ public class HomeActionBean extends BaseActionBean {
 	private String username;
 	private String content;
 
+	private Paste paste;
+
 	@DontValidate
 	@DefaultHandler
 	public Resolution view() {
@@ -29,8 +31,12 @@ public class HomeActionBean extends BaseActionBean {
 		p.setContent(getContent());
 
 		getPasteService().create(p);
+		setPaste(p);
 		return new RedirectResolution(HOME_ACTION);
 	}
+
+	public void setPaste(Paste paste) { this.paste = paste;  }
+	public Paste getPaste() { return paste; }
 
 	public String getTitle() { return title; }
 	public void setTitle(String title) { this.title = title; }
