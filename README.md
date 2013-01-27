@@ -23,6 +23,9 @@ Pirate Paste uses Maven, so starting it up locally is as easy as opening up a sh
 
 Open up a browser and navigate to `http://localhost:8080` to get started.
 
+## License
+
+Pirate Paste is licensed under the MIT License, so feel free to use this how you want.
 
 ## Authors
 
