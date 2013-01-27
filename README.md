@@ -10,7 +10,7 @@ If the student understands the full stack here and what is going on than they wi
 
 A few things to highlight:
 
-*  Stripes using JSP for its expression syntax so this will fit within any course using the [Java EE Tutorial](http://docs.oracle.com/javaee/6/tutorial/doc/)
+*  [Stripes](http://stripesframework.org) uses Java Server Pages so this will fit within any course using the [Java EE Tutorial](http://docs.oracle.com/javaee/6/tutorial/doc/)
 *  Dependency injection is achieved through using [Google Guice](https://code.google.com/p/google-guice/)
 *  Database access is done using [Hibernate](http://www.hibernate.org/)
 * [Maven](http://maven.apache.org/) is used for the build system
