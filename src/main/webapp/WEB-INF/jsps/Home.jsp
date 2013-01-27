@@ -5,23 +5,13 @@
 <s:layout-render name="Layout.jsp" pageTitle="home">
 	<s:layout-component name="pageBody">
 		<s:form action="/paste" beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean" id="sharePasteForm">
-			<table>
-				<tr>
-					<td>Title</td>
-					<td><s:text name="title"/></td>
-				</tr>
-				<tr>
-					<td>Username</td>
-					<td><s:text name="username"/></td>
-				</tr>
-				<tr>
-					<td>Content</td>
-					<td><s:textarea name="content" cols="50" rows="10"/></td>
-				</tr>
-				<tr>
-					<td><s:submit value="Share" class="button" name="submit"/></td>
-				</tr>
-			</table>
+			<fieldset>
+				<legend>Create Paste</legend>
+				<input type="text" id="title" name="title" class="input-block-level" placeholder="Title"/>
+				<input type="text" id="username" name="username" class="input-block-level" placeholder="Username"/>
+				<textarea id="content" name="content" rows="10" cols="50" class="input-block-level" placeholder="Content"></textarea>
+				<s:submit name="submit" class="btn btn-primary pull-right" value="Share"/>
+			</fieldset>
 		</s:form>
 	</s:layout-component>
 </s:layout-render>

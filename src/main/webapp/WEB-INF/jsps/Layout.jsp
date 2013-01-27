@@ -7,28 +7,60 @@
 	<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<title>Pirate Paste</title>
 		<base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
+
+		<link href="/styles/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			}
+			.sidebar-nav {
+				padding: 9px 0;
+			}
+		</style>
 	</head>
 
 	<body>
-	<h1>Pirate Paste</h1>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="/home">Pirate Paste</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li><s:link beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean">Create</s:link></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 
-	<div id="content">
-		<s:messages />
-		<s:errors />
-		<h3>Recent Pastes</h3>
-		<ul>
-			<c:forEach var="paste" items="${actionBean.recentPastes}">
-				<li>
-					<a href="/pastes/${paste.id}"><c:out value="${paste.title}"/></a> - <c:out value="${paste.username}"/><br/>
-					<s:format value="${paste.created}" formatPattern="EEE, dd MMM HH:mm"/>
-				</li>
-			</c:forEach>
-		</ul>
-		<s:layout-component name="pageBody"/>
-		<s:layout-component name="postRender"/>
-	</div>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span3">
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list">
+							<li class="nav-header">Recent Pastes</li>
+							<c:forEach var="paste" items="${actionBean.recentPastes}">
+								<li><a href="/pastes/${paste.id}"><c:out value="${paste.title}"/></a> by <c:out value="${paste.username}"/></li>
+							</c:forEach>
+						</ul>
+					</div>
+				</div>
+				<div class="span9">
+					<div class="row-fluid">
+						<div class="span6">
+							<s:messages />
+							<s:errors />
+							<s:layout-component name="pageBody"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 	</html>
 </s:layout-definition>

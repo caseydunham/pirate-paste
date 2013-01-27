@@ -4,18 +4,18 @@
 
 <s:layout-render name="Layout.jsp" pageTitle="home">
 	<s:layout-component name="pageBody">
-		<h3>Viewing Paste</h3>
 		<c:choose>
 			<c:when test="${actionBean.paste == null}">
-				<h3>Paste not found!</h3>
+				<h1><strong>Paste Not Found</strong></h1>
 			</c:when>
 			<c:otherwise>
-				<c:out value="${actionBean.paste.title}"/> - Posted by <c:out value="${actionBean.paste.username}"/> on
-				<s:format value="${actionBean.paste.created}" formatPattern="EEE, dd MMM HH:mm"/><br/>
-				<c:out value="${actionBean.paste.content}"/>
+				<h1><strong><c:out value="${actionBean.paste.title}"/></strong></h1>
+				<p>
+					<i class="icon-user"></i> by <c:out value="${actionBean.paste.username}"/> | <i class="icon-calendar"></i> <s:format value="${actionBean.paste.created}" formatPattern="EEE, dd MMM HH:mm"/>
+				</p>
+				<p></p>
+				<p><c:out value="${actionBean.paste.content}"/></p>
 			</c:otherwise>
 		</c:choose>
-		<br/><br/>
-		<s:link beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean">new paste</s:link>
 	</s:layout-component>
 </s:layout-render>
