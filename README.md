@@ -25,7 +25,7 @@ Open up a browser and navigate to `http://localhost:8080` to get started.
 
 ## License
 
-Pirate Paste is licensed under the MIT License, so feel free to use this how you want.
+Pirate Paste is licensed under the [MIT License](http://opensource.org/licenses/MIT), so feel free to use this how you want.
 
 ## Authors
 
