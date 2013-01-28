@@ -1,5 +1,6 @@
-package net.caseydunham.pirate;
+package net.caseydunham.pirate.stripes;
 
+import net.caseydunham.pirate.BaseTest;
 import net.caseydunham.pirate.model.Paste;
 import net.caseydunham.pirate.stripes.action.HomeActionBean;
 import net.sourceforge.stripes.mock.MockRoundtrip;

@@ -1,5 +1,6 @@
-package net.caseydunham.pirate;
+package net.caseydunham.pirate.services;
 
+import net.caseydunham.pirate.BaseTest;
 import net.caseydunham.pirate.dao.PasteDao;
 import net.caseydunham.pirate.model.Paste;
 import net.caseydunham.pirate.services.PasteService;

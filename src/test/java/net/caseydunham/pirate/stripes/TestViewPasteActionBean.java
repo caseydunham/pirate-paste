@@ -1,5 +1,6 @@
-package net.caseydunham.pirate;
+package net.caseydunham.pirate.stripes;
 
+import net.caseydunham.pirate.BaseTest;
 import net.caseydunham.pirate.stripes.action.ViewPasteActionBean;
 import net.sourceforge.stripes.mock.MockRoundtrip;
 import org.junit.Test;
