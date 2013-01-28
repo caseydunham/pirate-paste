@@ -32,7 +32,7 @@ public class HomeActionBean extends BaseActionBean {
 
 		getPasteService().create(p);
 		setPaste(p);
-		return new RedirectResolution(HOME_ACTION);
+		return new RedirectResolution(VIEW_PASTE_ACTION + "/" + p.getId());
 	}
 
 	public void setPaste(Paste paste) { this.paste = paste;  }

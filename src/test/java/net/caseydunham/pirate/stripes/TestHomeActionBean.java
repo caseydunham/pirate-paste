@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class TestHomeActionBean extends BaseTest {
 
@@ -34,7 +35,7 @@ public class TestHomeActionBean extends BaseTest {
 		Paste p = bean.getPaste();
 		assertNotNull(p);
 		assertNotNull(p.getId());
-		assertEquals("/pirate/home", trip.getRedirectUrl());
+		assertTrue(trip.getRedirectUrl().startsWith("/pirate/pastes/"));
 	}
 
 	@Test
