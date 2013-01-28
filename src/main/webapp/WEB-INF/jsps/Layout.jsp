@@ -54,7 +54,6 @@
 					<div class="row-fluid">
 						<div class="span6">
 							<s:messages />
-							<s:errors />
 							<s:layout-component name="pageBody"/>
 						</div>
 					</div>

@@ -50,11 +50,21 @@ public class TestHomeActionBean extends BaseTest {
 	@Test
 	public void testDefaults() throws Exception {
 		MockRoundtrip trip = new MockRoundtrip(mockServletContext, HomeActionBean.class, mockHttpSession);
+		trip.setParameter("content", "test content");
 		trip.execute("submit");
 		HomeActionBean bean = trip.getActionBean(HomeActionBean.class);
 		assertEquals("Untitled", bean.getTitle());
 		assertEquals("Unknown", bean.getUsername());
 		assertTrue(trip.getRedirectUrl().startsWith("/pirate/pastes/"));
+	}
+
+	@Test
+	public void testContentIsRequired() throws Exception {
+		MockRoundtrip trip = new MockRoundtrip(mockServletContext, HomeActionBean.class, mockHttpSession);
+		trip.execute("submit");
+		HomeActionBean bean = trip.getActionBean(HomeActionBean.class);
+		assertEquals(1, bean.getContext().getValidationErrors().size());
+		assertEquals(MockRoundtrip.DEFAULT_SOURCE_PAGE, trip.getDestination());
 	}
 
 }

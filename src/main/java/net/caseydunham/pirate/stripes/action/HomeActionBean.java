@@ -3,6 +3,7 @@ package net.caseydunham.pirate.stripes.action;
 import net.caseydunham.pirate.model.Paste;
 import net.sourceforge.stripes.action.*;
 import net.sourceforge.stripes.controller.LifecycleStage;
+import net.sourceforge.stripes.validation.Validate;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,8 @@ public class HomeActionBean extends BaseActionBean {
 
 	private String title;
 	private String username;
+
+	@Validate(required = true)
 	private String content;
 
 	private Paste paste;
