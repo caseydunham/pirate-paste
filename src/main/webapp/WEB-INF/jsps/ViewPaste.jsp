@@ -14,7 +14,7 @@
 					<i class="icon-user"></i> by <c:out value="${actionBean.paste.username}"/> | <i class="icon-calendar"></i> <s:format value="${actionBean.paste.created}" formatPattern="EEE, dd MMM HH:mm"/>
 				</p>
 				<p></p>
-				<p><c:out value="${actionBean.paste.content}"/></p>
+				<pre><c:out value="${actionBean.paste.content}"/></pre>
 			</c:otherwise>
 		</c:choose>
 	</s:layout-component>
