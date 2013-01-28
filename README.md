@@ -23,6 +23,9 @@ Pirate Paste uses Maven, so starting it up locally is as easy as opening up a sh
 
 Open up a browser and navigate to `http://localhost:8080` to get started.
 
+To start working with the code in an IDE like Eclipse, check out the [m2eclipse](http://www.sonatype.org/m2eclipse/) plugin. 
+If using [IntelliJ](http://www.jetbrains.com/idea/), you can import the project directly from the Start new project wizard.
+
 ## License
 
 Pirate Paste is licensed under the [MIT License](http://opensource.org/licenses/MIT), so feel free to use this how you want.
