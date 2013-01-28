@@ -4,6 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({TestPasteService.class, TestHomeActionBean.class})
+@Suite.SuiteClasses({TestPasteService.class, TestHomeActionBean.class, TestViewPasteActionBean.class})
 public class AllTests {
 }
