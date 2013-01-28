@@ -2,6 +2,8 @@ package net.caseydunham.pirate.stripes.action;
 
 import net.caseydunham.pirate.model.Paste;
 import net.sourceforge.stripes.action.*;
+import net.sourceforge.stripes.controller.LifecycleStage;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,6 +11,9 @@ import org.slf4j.LoggerFactory;
 public class HomeActionBean extends BaseActionBean {
 
 	private static final Logger LOG = LoggerFactory.getLogger(HomeActionBean.class);
+
+	public static final String DEFAULT_TITLE = "Untitled";
+	public static final String DEFAULT_USERNAME = "Unknown";
 
 	private String title;
 	private String username;
@@ -21,6 +26,16 @@ public class HomeActionBean extends BaseActionBean {
 	public Resolution view() {
 		LOG.info("forwarding to " + HOME_PAGE);
 		return new ForwardResolution(HOME_PAGE);
+	}
+
+	@After(stages = {LifecycleStage.BindingAndValidation})
+	public void bind() {
+		if (StringUtils.isEmpty(getTitle())) {
+			setTitle(DEFAULT_TITLE);
+		}
+		if (StringUtils.isEmpty(getUsername())) {
+			setUsername(DEFAULT_USERNAME);
+		}
 	}
 
 	@HandlesEvent("submit")

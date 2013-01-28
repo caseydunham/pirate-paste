@@ -7,8 +7,8 @@
 		<s:form action="/paste" beanclass="net.caseydunham.pirate.stripes.action.HomeActionBean" id="sharePasteForm">
 			<fieldset>
 				<legend>Create Paste</legend>
-				<input type="text" id="title" name="title" class="input-block-level" placeholder="Title"/>
-				<input type="text" id="username" name="username" class="input-block-level" placeholder="Username"/>
+				<input type="text" id="title" name="title" class="input-block-level" placeholder="Enter a title. Will default to Untitled if left blank."/>
+				<input type="text" id="username" name="username" class="input-block-level" placeholder="Enter a username. Will default to Unknown if left blank."/>
 				<textarea id="content" name="content" rows="10" cols="50" class="input-block-level" placeholder="Content"></textarea>
 				<s:submit name="submit" class="btn btn-primary pull-right" value="Share"/>
 			</fieldset>
